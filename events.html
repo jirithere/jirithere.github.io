@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summit Seekers - Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html"><i class="bi bi-cone-striped"></i> Summit Seekers</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="trails.html">Trail Database</a></li>
+                <li class="nav-item"><a class="nav-link" href="register.html">Join Club</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link active" href="events.html">Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Events</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container my-5">
+    <h2 class="mb-4 border-bottom pb-2">Upcoming Expeditions</h2>
+
+    <div class="card mb-4 shadow-sm">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="https://placehold.co/400x300/2c3e50/FFF?text=Alpine+Trek" class="img-fluid rounded-start h-100" style="object-fit:cover;" alt="Alpine">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Alpine Survival Weekend <span class="badge bg-danger">Selling Fast</span></h5>
+                    <p class="card-text"><small class="text-muted"><i class="bi bi-calendar-event"></i> October 14-16, 2023</small></p>
+                    <p class="card-text">A rigorous two-day survival course in the high Alps. Learn how to build snow shelters, navigate by stars, and manage resources.</p>
+                    <p><strong>Level:</strong> Expert | <strong>Price:</strong> $250</p>
+                    <a href="register.html" class="btn btn-primary">Book Now</a>
+                    <button class="btn btn-outline-secondary ms-2" data-bs-toggle="collapse" data-bs-target="#details1">View Itinerary</button>
+
+                    <div class="collapse mt-3" id="details1">
+                        <div class="card card-body bg-light">
+                            <ul>
+                                <li>Day 1: Base camp setup and knot tying.</li>
+                                <li>Day 2: Summit attempt and descent.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4 shadow-sm">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="https://placehold.co/400x300/27ae60/FFF?text=Nature+Walk" class="img-fluid rounded-start h-100" style="object-fit:cover;" alt="Nature">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Beginner's Photography Walk <span class="badge bg-success">New</span></h5>
+                    <p class="card-text"><small class="text-muted"><i class="bi bi-calendar-event"></i> November 5, 2023</small></p>
+                    <p class="card-text">Join a professional photographer for a gentle hike through the autumn woods. Perfect for families and beginners.</p>
+                    <p><strong>Level:</strong> Easy | <strong>Price:</strong> Free for Members</p>
+                    <a href="register.html" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4 shadow-sm">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="https://placehold.co/400x300/e67e22/FFF?text=Canyon+Hike" class="img-fluid rounded-start h-100" style="object-fit:cover;" alt="Canyon">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Grand Canyon Descent</h5>
+                    <p class="card-text"><small class="text-muted"><i class="bi bi-calendar-event"></i> December 12, 2023</small></p>
+                    <p class="card-text">A challenging descent into the canyon with an overnight stay by the river.</p>
+                    <p><strong>Level:</strong> Moderate | <strong>Price:</strong> $120</p>
+                    <button class="btn btn-secondary" disabled>Sold Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2023 Summit Seekers</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

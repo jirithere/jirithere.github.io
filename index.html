@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Bean Coffee Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fs-3" href="index.html">
+            <i class="bi bi-cup-hot-fill"></i> Velvet Bean
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Domů</a></li>
+                <li class="nav-item"><a class="nav-link" href="menu.html">Menu & Data</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservation.html">Rezervace</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Galerie</a></li>
+                <li class="nav-item"><a class="nav-link" href="eshop.html">E-shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="photos/coffee-4334647_1280.jpg" class="d-block w-100" alt="Káva">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Prémiová zrna</h5>
+                <p>Pražíme s láskou každý den.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="photos/coffee-819362_1280.jpg" class="d-block w-100" alt="Kavárna interiér">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Útulná atmosféra</h5>
+                <p>Váš druhý domov.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="photos/coffee-2139592_1280.jpg" class="d-block w-100" alt="Barista">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Profesionální baristé</h5>
+                <p>Umění v každém šálku.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</header>
+
+<div class="container my-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Domů</li>
+        </ol>
+    </nav>
+
+    <div class="container my-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-6">O světě Velvet Bean</h2>
+            <p class="text-muted">Poznejte filozofii, která se skrývá za každým šálkem.</p>
+        </div>
+
+        <ul class="nav nav-tabs nav-tabs-clean justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#story" type="button">Náš příběh</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#beans" type="button">Původ zrn</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#sustain" type="button">Udržitelnost</button>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-4" id="myTabContent">
+
+            <div class="tab-pane fade show active" id="story">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center"> <h4 class="mb-3">Od garáže k srdci města</h4>
+                        <p class="text-muted">
+                            Vše začalo v roce 2020 s jedním malým pražícím strojem a velkým snem.
+                            Zakladatelé Petr a Jana chtěli do Ostravy přinést kávu, která není jen o kofeinu,
+                            ale o zážitku. Dnes jsme místem, kde se setkávají studenti, umělci i byznysmeni.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="beans">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h4 class="mb-3">Cesta kolem světa</h4>
+                        <p class="text-muted">
+                            Káva je ovoce a my s ní tak zacházíme. Spolupracujeme přímo s farmáři
+                            v regionech Guji v Etiopii a Minas Gerais v Brazílii.
+                            Pražíme na styl "Omni roast", abychom nezabili přirozené tóny ovoce.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="sustain">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h4 class="mb-3">Planeta na prvním místě</h4>
+                        <p class="text-muted">
+                            Všechny naše kelímky jsou 100% kompostovatelné. Zavedli jsme systém
+                            vratných kelímků "Otoč šálek" a slevu pro každého s vlastním hrnkem.
+                            Kávovou sedlinu nevyhazujeme, ale dáváme ji zahrádkářům.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="py-5 my-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="image-card-bg">
+                        <img src="photos/coffee-2714970_1280.jpg"
+                             alt="Velvet Bean Signature Drink"
+                             class="img-fluid rounded-4 product-image-shadow">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 ps-lg-5"> <div class="heading-accent-border mb-4">
+                    <h3 class="fw-bold mb-3">Naše Cíle a Cesta</h3>
+                    <p class="text-muted lead fs-6">
+                        Rozšiřujeme obzory, jeden šálek po druhém. S rostoucí vášní pro kvalitu a komunitu přinášíme ten nejlepší kávový zážitek do více míst každý den. U nás ve Velvet Bean věříme, že káva je víc než jen nápoj.
+                    </p>
+                </div>
+
+                    <div class="row text-center gy-5 mt-4">
+                        <div class="col-6">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Let na trhu</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-number">25k+</div>
+                            <div class="stat-label">Spokojených zákazníků</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Výběrová Arabica</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-number">4.9/5</div>
+                            <div class="stat-label">Průměrné hodnocení</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-6">Víc než jen káva</h2>
+            <p class="text-muted">Tři pilíře, na kterých stavíme náš úspěch a vaši spokojenost.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 bg-transparent text-center">
+                    <div class="card-body">
+                        <div class="icon-circle mb-4 mx-auto shadow-sm">
+                            <i class="bi bi-hand-thumbs-up-fill fs-2" style="color: #6f4e37;"></i>
+                        </div>
+                        <h4 class="card-title fw-bold">Fér k farmářům</h4>
+                        <p class="card-text text-muted">
+                            Nekupujeme na burze. Jezdíme přímo na plantáže a platíme farmářům cenu, kterou si skutečně zaslouží. Žádní prostředníci.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 bg-transparent text-center">
+                    <div class="card-body">
+                        <div class="icon-circle mb-4 mx-auto shadow-sm">
+                            <i class="bi bi-fire fs-2" style="color: #6f4e37;"></i>
+                        </div>
+                        <h4 class="card-title fw-bold">Praženo v Ostravě</h4>
+                        <p class="card-text text-muted">
+                            Káva nám neleží měsíce ve skladu. Pražíme v malých dávkách 3x týdně, aby se k vám dostala v té nejlepší kondici a plná aroma.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 bg-transparent text-center">
+                    <div class="card-body">
+                        <div class="icon-circle mb-4 mx-auto shadow-sm">
+                            <i class="bi bi-mortarboard-fill fs-2" style="color: #6f4e37;"></i>
+                        </div>
+                        <h4 class="card-title fw-bold">Kávová akademie</h4>
+                        <p class="card-text text-muted">
+                            Nevíte si rady s přípravou? Pořádáme kurzy cuppingu a domácí přípravy. Rádi vás naučíme, jak z našich zrn dostat maximum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="py-5 text-white" style="background-color: #2b221e;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-3 mb-lg-0 text-center text-lg-start">
+                <h3 class="fw-bold mb-1"><i class="bi bi-envelope-paper-heart"></i> Neuteče vám žádná novinka?</h3>
+                <p class="mb-0 text-white-50">Získejte slevu 10 % na první nákup za odběr newsletteru.</p>
+            </div>
+            <div class="col-lg-6">
+                <form class="d-flex">
+                    <input class="form-control form-control-lg me-2 border-0" type="email" placeholder="Váš email..." aria-label="Email">
+                    <button class="btn btn-warning fw-bold px-4" type="button" onclick="alert('Děkujeme za odběr!')">Odebírat</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-custom pt-5 pb-3 mt-5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="#" class="footer-logo d-block mb-3">
+                    <i class="bi bi-cup-hot-fill text-warning"></i> Velvet Bean
+                </a>
+                <p>
+                    Váš denní rituál v srdci Ostravy. Pražíme výběrovou kávu s respektem k přírodě a farmářům. Přijďte ochutnat rozdíl.
+                </p>
+                <div class="mt-3">
+                    <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-heading">Navigace</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="footer-link">Domů</a></li>
+                    <li><a href="menu.html" class="footer-link">Menu & Data</a></li>
+                    <li><a href="reservation.html" class="footer-link">Rezervace</a></li>
+                    <li><a href="gallery.html" class="footer-link">Galerie</a></li>
+                    <li><a href="eshop.html" class="footer-link">E-shop</a></li>
+                    <li><a href="contact.html" class="footer-link">Kariéra</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="footer-heading">Kontakt</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="bi bi-geo-alt me-2 text-warning"></i> Dlouhá třída 123, Ostrava
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-envelope me-2 text-warning"></i> info@velvetbean.cz
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-telephone me-2 text-warning"></i> +420 123 456 789
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="footer-heading">Otevírací doba</h5>
+                <ul class="list-unstyled">
+                    <li class="d-flex justify-content-between mb-2">
+                        <span>Po - Pá:</span>
+                        <span class="fw-bold">7:00 - 20:00</span>
+                    </li>
+                    <li class="d-flex justify-content-between mb-2">
+                        <span>Sobota:</span>
+                        <span class="fw-bold">8:00 - 22:00</span>
+                    </li>
+                    <li class="d-flex justify-content-between mb-2">
+                        <span>Neděle:</span>
+                        <span class="fw-bold">9:00 - 18:00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="footer-divider mb-3">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">&copy; 2023 Velvet Bean Coffee Shop. Všechna práva vyhrazena.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="#" class="text-secondary text-decoration-none small me-3">Obchodní podmínky</a>
+                <a href="#" class="text-secondary text-decoration-none small">Ochrana soukromí</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

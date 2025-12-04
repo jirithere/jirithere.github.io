@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Bean Coffee Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fs-3" href="index.html">
+            <i class="bi bi-cup-hot-fill"></i> Velvet Bean
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Domů</a></li>
+                <li class="nav-item"><a class="nav-link" href="menu.html">Menu & Data</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservation.html">Rezervace</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Galerie</a></li>
+                <li class="nav-item"><a class="nav-link active" href="eshop.html">E-shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <nav aria-label="breadcrumb" class="my-3">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Domů</a></li>
+                <li class="breadcrumb-item active">E-shop</li>
+            </ol>
+        </div>
+    </nav>
+
+    <button class="btn btn-warning rounded-circle shadow p-3 position-fixed bottom-0 end-0 m-4" style="z-index: 1000;" data-bs-toggle="modal" data-bs-target="#cartModal">
+        <i class="bi bi-cart-fill fs-4 text-dark"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+        0
+    </span>
+    </button>
+
+    <div class="container mb-5">
+        <div class="row">
+
+            <div class="col-lg-3 mb-4">
+                <h4 class="mb-3">Kategorie</h4>
+                <div class="list-group" id="shop-filters">
+                    <a href="#" class="list-group-item list-group-item-action active" data-filter="all">Všechny produkty</a>
+                    <a href="#" class="list-group-item list-group-item-action" data-filter="kava">Čerstvá káva</a>
+                    <a href="#" class="list-group-item list-group-item-action" data-filter="prislusenstvi">Příslušenství</a>
+                    <a href="#" class="list-group-item list-group-item-action" data-filter="merch">Merch & Dárky</a>
+                </div>
+
+                <div class="card mt-4 bg-light border-0">
+                    <div class="card-body">
+                        <h5>Doprava zdarma</h5>
+                        <p class="small text-muted mb-0">Při objednávce nad 1500 Kč.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+
+                <div class="row g-4" id="product-list">
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="kava">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <span class="position-absolute top-0 start-0 badge bg-danger m-2">Bestseller</span>
+                            <img src="photos/eshop_coffee/velvet_espresso_blend.png" class="card-img-top p-3" alt="Káva" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Velvet Espresso Blend</h5>
+                                <p class="card-text text-muted small">Brazílie & Kolumbie. Tóny čokolády.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">350 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Velvet Espresso Blend', 350)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="kava">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="photos/eshop_coffee/ethiopia_guji.png" class="card-img-top p-3" alt="Káva" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Ethiopia Guji Grade 1</h5>
+                                <p class="card-text text-muted small">Světlé pražení. Jasmín a broskve.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">420 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Ethiopia Guji Grade 1', 420)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="kava">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="photos/eshop_coffee/morning_kick.png" class="card-img-top p-3" alt="Káva" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Morning Kick</h5>
+                                <p class="card-text text-muted small">Silná směs s Robustou.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">290 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Morning Kick', 290)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="kava">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <span class="position-absolute top-0 start-0 badge bg-warning text-dark m-2">Premium</span>
+                            <img src="photos/eshop_coffee/kenya_top_masai.png" class="card-img-top p-3" alt="Káva" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Kenya AA Top Masai</h5>
+                                <p class="card-text text-muted small">Šťavnatá káva, rybíz a rajčata.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">520 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Kenya AA Top Masai', 520)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="kava">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="photos/eshop_coffee/brazil_santos.png" class="card-img-top p-3" alt="Káva" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Brazil Santos NY2</h5>
+                                <p class="card-text text-muted small">Klasika. Nízká kyselost.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">320 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Brazil Santos NY2', 320)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="kava">
+                        <div class="card h-100 border-0 shadow-sm border-warning">
+                            <span class="position-absolute top-0 start-0 badge bg-dark m-2">Limitovaná edice</span>
+                            <img src="photos/eshop_coffee/colombia_geisha.png" class="card-img-top p-3" alt="Káva" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Colombia Geisha</h5>
+                                <p class="card-text text-muted small">Vzácná odrůda. Květinová chuť.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5 text-dark">1 200 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Colombia Geisha', 1200)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="kava">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <span class="position-absolute top-0 start-0 badge bg-success m-2">Bez kofeinu</span>
+                            <img src="photos/eshop_coffee/decaf_colombia.png" class="card-img-top p-3" alt="Káva" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Decaf Colombia</h5>
+                                <p class="card-text text-muted small">Metoda Swiss Water. Plná chuť.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">440 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Decaf Colombia', 440)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="kava">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <span class="position-absolute top-0 start-0 badge bg-info text-dark m-2">Zimní edice</span>
+                            <img src="photos/eshop_coffee/winter_special_blend.png" class="card-img-top p-3" alt="Káva" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Winter Special Blend</h5>
+                                <p class="card-text text-muted small">Skořice a pečené jablko.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">390 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Winter Special Blend', 390)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="prislusenstvi">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="photos/eshop_acsesory/hario_v60_set.png" class="card-img-top p-3" alt="V60" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Hario V60 Set</h5>
+                                <p class="card-text text-muted small">Kompletní sada pro filtr.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">690 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Hario V60 Set', 690)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="prislusenstvi">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="photos/eshop_acsesory/aeropress.png" class="card-img-top p-3" alt="Aeropress" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Aeropress Original</h5>
+                                <p class="card-text text-muted small">Nejvšestrannější kávovar na cesty.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">850 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Aeropress Original', 850)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="merch">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="photos/eshop_acsesory/velvet_keep_cup.png" class="card-img-top p-3" alt="Hrnek" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Velvet KeepCup</h5>
+                                <p class="card-text text-muted small">Vratný kelímek "L".</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">390 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Velvet KeepCup', 390)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 shop-item" data-category="merch">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="photos/eshop_acsesory/zastera.png" class="card-img-top p-3" alt="Zástěra" style="height: 200px; object-fit: contain;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Barista Zástěra</h5>
+                                <p class="card-text text-muted small">Kožená, ručně šitá.</p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold fs-5">1 590 Kč</span>
+                                    <button class="btn btn-outline-dark btn-sm" onclick="addToCart('Barista Zástěra', 1590)">
+                                        <i class="bi bi-cart-plus"></i> Do košíku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title"><i class="bi bi-cart3"></i> Váš nákupní košík</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive mb-4">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                            <tr>
+                                <th>Produkt</th>
+                                <th>Mn.</th>
+                                <th>Cena</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody id="cart-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <form id="checkout-form">
+                        <div class="row g-4 bg-light p-3 rounded border mx-1">
+
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3"><i class="bi bi-truck"></i> Způsob dopravy</h6>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="shipping" id="ship1" value="PPL" data-price="99" checked onchange="calculateTotal()">
+                                    <label class="form-check-label d-flex justify-content-between" for="ship1">
+                                        <span>PPL Kurýr</span>
+                                        <span class="fw-bold">99 Kč</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="shipping" id="ship2" value="Zásilkovna" data-price="79" onchange="calculateTotal()">
+                                    <label class="form-check-label d-flex justify-content-between" for="ship2">
+                                        <span>Zásilkovna (Z-Box)</span>
+                                        <span class="fw-bold">79 Kč</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shipping" id="ship3" value="Balíkovna" data-price="65" onchange="calculateTotal()">
+                                    <label class="form-check-label d-flex justify-content-between" for="ship3">
+                                        <span>Balíkovna</span>
+                                        <span class="fw-bold">65 Kč</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 border-start-md">
+                                <h6 class="fw-bold mb-3"><i class="bi bi-credit-card"></i> Způsob platby</h6>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="payment" id="pay1" value="Karta" data-price="0" checked onchange="calculateTotal()">
+                                    <label class="form-check-label d-flex justify-content-between" for="pay1">
+                                        <span>Platba kartou online</span>
+                                        <span class="text-success">Zdarma</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="payment" id="pay2" value="Převod" data-price="0" onchange="calculateTotal()">
+                                    <label class="form-check-label d-flex justify-content-between" for="pay2">
+                                        <span>Převod z účtu</span>
+                                        <span class="text-success">Zdarma</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment" id="pay3" value="Dobírka" data-price="39" onchange="calculateTotal()">
+                                    <label class="form-check-label d-flex justify-content-between" for="pay3">
+                                        <span>Dobírka</span>
+                                        <span class="fw-bold">39 Kč</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="text-end mt-4">
+                        <p class="mb-1 text-muted">Cena za zboží: <span id="subtotal-price">0 Kč</span></p>
+                        <p class="mb-1 text-muted">Doprava a platba: <span id="shipping-price">0 Kč</span></p>
+                        <h4 class="mt-2">Celkem k úhradě: <span id="grand-total" class="text-success fw-bold display-6 fs-3">0 Kč</span></h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Pokračovat v nákupu</button>
+                    <button type="button" class="btn btn-primary" onclick="finishOrder()">Dokončit objednávku</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Globální proměnná košíku
+        let cart = [];
+
+        // Přidání do košíku
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, quantity: 1 });
+            }
+            updateCartUI(); // Aktualizujeme UI (číslo u košíku)
+            calculateTotal(); // Přepočítáme i Modal, kdyby byl otevřený
+        }
+
+        // Odebrání z košíku
+        function removeFromCart(name) {
+            const index = cart.findIndex(item => item.name === name);
+            if (index > -1) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+            calculateTotal();
+        }
+
+        // Aktualizace ikonky košíku a seznamu produktů
+        function updateCartUI() {
+            // 1. Číslo u ikony
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').innerText = totalCount;
+
+            // 2. Tabulka produktů
+            const tbody = document.getElementById('cart-table-body');
+            tbody.innerHTML = '';
+
+            let productTotal = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                productTotal += itemTotal;
+                const row = `
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.quantity} ks</td>
+                <td>${itemTotal} Kč</td>
+                <td><button class="btn btn-sm text-danger" onclick="removeFromCart('${item.name}')"><i class="bi bi-trash"></i></button></td>
+            </tr>`;
+                tbody.innerHTML += row;
+            });
+
+            // Uložíme si mezisoučet do data atributu pro pozdější výpočty
+            document.getElementById('subtotal-price').innerText = productTotal + " Kč";
+            document.getElementById('subtotal-price').dataset.value = productTotal;
+        }
+
+        // --- 2. LOGIKA FILTROVÁNÍ (Sidebar) ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterLinks = document.querySelectorAll('#shop-filters a');
+            const shopItems = document.querySelectorAll('.shop-item');
+
+            filterLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); // Aby se stránka nepřeskočila nahoru
+
+                    // Změna aktivní třídy v menu
+                    filterLinks.forEach(l => {
+                        l.classList.remove('active');
+                        l.style.backgroundColor = ''; // Reset barvy
+                        l.style.borderColor = '';
+                        l.classList.remove('text-white');
+                    });
+
+                    link.classList.add('active');
+                    // Nastavení hnědé barvy pro aktivní prvek (jako v původním HTML)
+                    link.style.backgroundColor = '#6f4e37';
+                    link.style.borderColor = '#6f4e37';
+                    link.classList.add('text-white');
+
+                    // Filtrace produktů
+                    const filterValue = link.getAttribute('data-filter');
+
+                    shopItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.classList.remove('d-none');
+                        } else {
+                            item.classList.add('d-none');
+                        }
+                    });
+                });
+            });
+        });
+
+        // HLAVNÍ VÝPOČET (Zboží + Doprava + Platba)
+        function calculateTotal() {
+            // 1. Cena zboží
+            const subtotal = parseInt(document.getElementById('subtotal-price').dataset.value || 0);
+
+            // 2. Cena dopravy (z vybraného radio buttonu)
+            const shippingRadio = document.querySelector('input[name="shipping"]:checked');
+            const shippingCost = shippingRadio ? parseInt(shippingRadio.getAttribute('data-price')) : 0;
+
+            // 3. Cena platby
+            const paymentRadio = document.querySelector('input[name="payment"]:checked');
+            const paymentCost = paymentRadio ? parseInt(paymentRadio.getAttribute('data-price')) : 0;
+
+            // 4. Sečtení a vypsání
+            const extraCosts = shippingCost + paymentCost;
+            const grandTotal = subtotal + extraCosts;
+
+            document.getElementById('shipping-price').innerText = extraCosts + " Kč";
+            document.getElementById('grand-total').innerText = grandTotal + " Kč";
+        }
+
+        // DOKONČENÍ OBJEDNÁVKY (Uložení dat a přesměrování)
+        // DOKONČENÍ OBJEDNÁVKY (Vylepšená verze pro eshop.html)
+        // DOKONČENÍ OBJEDNÁVKY (Verze přes URL parametry)
+        function finishOrder(event) {
+            if (event) event.preventDefault();
+
+            if (cart.length === 0) {
+                alert("Košík je prázdný!");
+                return;
+            }
+
+            // Najdeme inputy
+            const shipInput = document.querySelector('input[name="shipping"]:checked');
+            const payInput = document.querySelector('input[name="payment"]:checked');
+            const totalSpan = document.getElementById('grand-total');
+
+            if (!shipInput || !payInput) {
+                alert("Chyba: Nevybrána doprava nebo platba.");
+                return;
+            }
+
+            const shipping = shipInput.value;
+            const payment = payInput.value;
+            const total = totalSpan.innerText;
+
+            // --- ZMĚNA: Pošleme data v odkazu ---
+            // Vytvoříme adresu typu: thankyou.html?doprava=PPL&platba=Karta
+            const url = `thankyou.html?shipping=${encodeURIComponent(shipping)}&payment=${encodeURIComponent(payment)}&total=${encodeURIComponent(total)}`;
+
+            console.log("Přesměrovávám na:", url);
+            window.location.href = url;
+        }
+
+        // Při načtení stránky inicializujeme
+        document.addEventListener("DOMContentLoaded", function() {
+            calculateTotal(); // Aby se hned ukázala cena dopravy
+        });
+    </script>
+</div>
+
+<footer class="footer-custom pt-5 pb-3 mt-5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="#" class="footer-logo d-block mb-3">
+                    <i class="bi bi-cup-hot-fill text-warning"></i> Velvet Bean
+                </a>
+                <p>
+                    Váš denní rituál v srdci Ostravy. Pražíme výběrovou kávu s respektem k přírodě a farmářům. Přijďte ochutnat rozdíl.
+                </p>
+                <div class="mt-3">
+                    <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="footer-heading">Navigace</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="footer-link">Domů</a></li>
+                    <li><a href="menu.html" class="footer-link">Menu & Data</a></li>
+                    <li><a href="reservation.html" class="footer-link">Rezervace</a></li>
+                    <li><a href="gallery.html" class="footer-link">Galerie</a></li>
+                    <li><a href="eshop.html" class="footer-link">E-shop</a></li>
+                    <li><a href="contact.html" class="footer-link">Kariéra</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="footer-heading">Kontakt</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="bi bi-geo-alt me-2 text-warning"></i> Dlouhá třída 123, Ostrava
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-envelope me-2 text-warning"></i> info@velvetbean.cz
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-telephone me-2 text-warning"></i> +420 123 456 789
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="footer-heading">Otevírací doba</h5>
+                <ul class="list-unstyled">
+                    <li class="d-flex justify-content-between mb-2">
+                        <span>Po - Pá:</span>
+                        <span class="fw-bold">7:00 - 20:00</span>
+                    </li>
+                    <li class="d-flex justify-content-between mb-2">
+                        <span>Sobota:</span>
+                        <span class="fw-bold">8:00 - 22:00</span>
+                    </li>
+                    <li class="d-flex justify-content-between mb-2">
+                        <span>Neděle:</span>
+                        <span class="fw-bold">9:00 - 18:00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="footer-divider mb-3">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">&copy; 2023 Velvet Bean Coffee Shop. Všechna práva vyhrazena.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="#" class="text-secondary text-decoration-none small me-3">Obchodní podmínky</a>
+                <a href="#" class="text-secondary text-decoration-none small">Ochrana soukromí</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

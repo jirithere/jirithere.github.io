@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haraz Coffee - Bean Inventory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-haraz-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">HARAZ COFFEE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="inventory.html">Haraz Beans</a></li>
+                <li class="nav-item"><a class="nav-link" href="register.html">Franchise</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Bean Database</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container my-5">
+    <h2 class="mb-4 text-haraz-gold">Premium Green Bean Inventory</h2>
+    <p class="lead">Real-time stock of our imported Yemeni micro-lots.</p>
+
+    <div class="card p-4 border-0 shadow-sm">
+        <table id="harazTable" class="table table-hover" style="width:100%">
+            <thead class="bg-haraz-dark text-white">
+            <tr>
+                <th>Region / Lot</th>
+                <th>Variety (Odrůda)</th>
+                <th>Altitude (m.n.m.)</th>
+                <th>Process</th>
+                <th>Stock (kg)</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer class="bg-haraz-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2023 Haraz Coffee House</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    // Data generator pro Haraz kávu
+    const regions = ["Haraz Sharki", "Matari", "Ismaili", "Bani Mattar", "Sana'a"];
+    const varieties = ["Jaadi", "Dawairi", "Tuffahi", "Udaini"];
+    const processes = ["Natural (Sun-dried)", "Anaerobic Natural"];
+
+    const tableBody = document.getElementById('tableBody');
+
+    for (let i = 1; i <= 55; i++) {
+        const region = regions[Math.floor(Math.random() * regions.length)];
+        const variety = varieties[Math.floor(Math.random() * varieties.length)];
+        const process = processes[Math.floor(Math.random() * processes.length)];
+        const altitude = Math.floor(Math.random() * 600 + 1900); // 1900 - 2500m
+        const stock = Math.floor(Math.random() * 500);
+
+        let status = '<span class="badge bg-success">Available</span>';
+        if(stock < 50) status = '<span class="badge bg-warning text-dark">Low Stock</span>';
+        if(stock === 0) status = '<span class="badge bg-secondary">Sold Out</span>';
+
+        const row = `<tr>
+                <td><strong>${region} Lot #${i}</strong></td>
+                <td>${variety}</td>
+                <td>${altitude} m</td>
+                <td>${process}</td>
+                <td>${stock} kg</td>
+                <td>${status}</td>
+            </tr>`;
+        tableBody.innerHTML += row;
+    }
+
+    $(document).ready(function () {
+        $('#harazTable').DataTable();
+    });
+</script>
+</body>
+</html>

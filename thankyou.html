@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Děkujeme za objednávku | Velvet Bean</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fs-3" href="index.html" style="font-family: 'Georgia', serif; font-weight: bold; color: #6f4e37;">
+            <i class="bi bi-cup-hot-fill"></i> Velvet Bean
+        </a>
+    </div>
+</nav>
+
+<div class="container my-5 py-5">
+    <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+
+            <div class="mb-4">
+                <i class="bi bi-check-circle-fill success-icon"></i>
+            </div>
+
+            <h1 class="display-5 fw-bold mb-3">Děkujeme za vaši objednávku!</h1>
+            <p class="lead text-muted mb-5">
+                Vaše káva se už těší na cestu k vám. Potvrzení objednávky jsme vám právě odeslali na email.
+            </p>
+
+            <div class="card order-card shadow-sm p-4 mb-5 text-start">
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <h5 class="text-muted text-uppercase small ls-1">Číslo objednávky</h5>
+                        <p class="fs-4 fw-bold mb-0" id="order-id">#VB-000000</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <h5 class="text-muted text-uppercase small ls-1">Předpokládané doručení</h5>
+                        <p class="fs-4 fw-bold mb-0 text-success" id="delivery-date">Načítání...</p>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="mb-1">
+                            <strong>Způsob platby:</strong>
+                            <span id="summary-payment" class="text-dark fw-bold">Načítání...</span>
+                        </p>
+                        <p class="mb-0">
+                            <strong>Doprava:</strong>
+                            <span id="summary-shipping" class="text-dark fw-bold">Načítání...</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row">
+                <a href="index.html" class="btn btn-outline-dark btn-lg px-4">
+                    <i class="bi bi-house"></i> Zpět domů
+                </a>
+                <a href="eshop.html" class="btn btn-warning btn-lg px-4 text-white" style="background-color: #d4a373; border: none;">
+                    <i class="bi bi-bag-plus"></i> Nakoupit znovu
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("----- NAČÍTÁM STRÁNKU DĚKUJEME -----");
+
+        // 1. Generování čísla a data
+        const randomOrderNum = Math.floor(Math.random() * 900000) + 100000;
+        const orderEl = document.getElementById('order-id');
+        if(orderEl) orderEl.innerText = '#VB-' + randomOrderNum;
+
+        const deliveryDate = new Date();
+        deliveryDate.setDate(deliveryDate.getDate() + 2);
+        const dateEl = document.getElementById('delivery-date');
+        if(dateEl) dateEl.innerText = deliveryDate.toLocaleDateString('cs-CZ');
+
+        // 2. NAČTENÍ DAT Z URL ADRESY
+        // Použijeme nástroj URLSearchParams
+        const params = new URLSearchParams(window.location.search);
+
+        const savedShipping = params.get('shipping');
+        const savedPayment = params.get('payment');
+        // const savedTotal = params.get('total'); // Můžeš použít i cenu, pokud chceš
+
+        console.log("Doprava z URL:", savedShipping);
+        console.log("Platba z URL:", savedPayment);
+
+        // 3. VLOŽENÍ DO STRÁNKY
+        const shippingEl = document.getElementById('summary-shipping');
+        const paymentEl = document.getElementById('summary-payment');
+
+        if (shippingEl) {
+            shippingEl.innerText = savedShipping ? savedShipping : "Standardní doprava";
+        }
+        if (paymentEl) {
+            paymentEl.innerText = savedPayment ? savedPayment : "Hotově / Kartou";
+        }
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

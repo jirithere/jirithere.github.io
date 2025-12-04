@@ -1,0 +1,248 @@
+/* Kávová paleta barev */
+:root {
+    --vb-accent-brown: #A0522D; /* Barva svislé čáry a čísel */
+    --vb-bg-soft: #f7f3f0;      /* Jemné pozadí za obrázkem */
+}
+
+/* Styl pro kontejner obrázku vlevo */
+.image-card-bg {
+    background-color: var(--vb-bg-soft);
+    border-radius: 2rem; /* Velké zaoblení rohů (rounded-5 v novějším BS) */
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Akcentní čára vedle nadpisu */
+.heading-accent-border {
+    border-left: 4px solid var(--vb-accent-brown);
+    padding-left: 1.5rem;
+}
+
+/* Styl pro velká čísla ve statistikách */
+.stat-number {
+    color: var(--vb-accent-brown);
+    font-weight: 700; /* Extra tučné */
+    font-size: 3.5rem; /* Velikost jako display-4/5 */
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+/* Styl pro malé popisky pod čísly */
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6c757d; /* Bootstrap text-muted */
+    font-weight: 600;
+}
+
+/* Jemné stínování pro produktový obrázek, aby "vystoupil" */
+.product-image-shadow {
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+    max-height: 400px; /* Omezení výšky pro zachování proporcí */
+    object-fit: contain;
+}
+
+     /* Vlastní styly jen pro tuto sekci */
+
+     /* Odstranění spodní čáry celého kontejneru tabů */
+ .nav-tabs-clean {
+     border-bottom: none;
+     justify-content: center; /* Zarovnání záložek na střed */
+     margin-bottom: 2rem;
+ }
+
+/* Stylování jednotlivých odkazů (tlačítek) */
+.nav-tabs-clean .nav-link {
+    border: none !important;    /* Žádné rámečky */
+    color: #888;                /* Šedá barva neaktivního tabu */
+    font-weight: 500;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+    background-color: transparent !important; /* Žádné pozadí */
+    position: relative;
+}
+
+/* Hover efekt (když najedeš myší) */
+.nav-tabs-clean .nav-link:hover {
+    color: #6f4e37; /* Kávová hnědá */
+}
+
+/* Aktivní tab (vybraný) */
+.nav-tabs-clean .nav-link.active {
+    color: #6f4e37;     /* Tmavší hnědá pro aktivní */
+    font-weight: bold;
+}
+
+/* Vytvoření podtržítka pomocí pseudo-elementu (animované) */
+.nav-tabs-clean .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    background-color: #6f4e37;
+    transition: all 0.3s ease;
+    transform: translateX(-50%); /* Centrování */
+}
+
+/* Když je tab aktivní, roztáhneme podtržítko */
+.nav-tabs-clean .nav-link.active::after {
+    width: 50%; /* Podtržítko bude pod polovinou textu */
+}
+
+/* Text obsahu */
+.tab-text-content {
+    max-width: 800px; /* Aby text nebyl roztažený přes celou šířku */
+    margin: 0 auto;   /* Centrování bloku textu */
+    line-height: 1.8; /* Lepší čitelnost */
+    color: #555;
+}
+
+/* --- Vlastní styl Breadcrumbs pro Velvet Bean --- */
+
+/* 1. Změna oddělovače z lomítka na šipku */
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">"; /* Můžeš zde dát i jiný znak, např. "•" */
+    color: #6f4e37; /* Kávová hnědá */
+}
+
+/* 2. Styl odkazů (neaktivní položky) */
+.breadcrumb-item a {
+    color: #6f4e37; /* Hnědá barva místo modré */
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+/* 3. Hover efekt na odkazech */
+.breadcrumb-item a:hover {
+    color: #A0522D; /* Světlejší hnědá/bronzová při najetí */
+    text-decoration: underline !important;
+}
+
+/* 4. Styl aktivní položky (aktuální stránka) */
+.breadcrumb-item.active {
+    color: #999; /* Jemná šedá, aby nerušila */
+    font-weight: 400;
+}
+
+/* --- Styles pro Footer Velvet Bean --- */
+.footer-custom {
+    background-color: #2b221e !important; /* !important vynutí tuto barvu nad vším ostatním */
+    color: #d3d3d3 !important;            /* Vynutíme i barvu textu */
+    font-size: 0.9rem;
+}
+
+.footer-logo {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+/* Nadpisy sloupců */
+.footer-heading {
+    color: #d4a373; /* Zlatavá/Bronzová barva nadpisů (Crema) */
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Odkazy v patičce */
+.footer-link {
+    color: #d3d3d3;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-link:hover {
+    color: #d4a373; /* Změna barvy na zlatavou při najetí */
+    transform: translateX(5px); /* Jemný posun doprava */
+}
+
+/* Ikony sociálních sítí */
+.social-icon {
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255,255,255,0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background-color: #d4a373;
+    color: #2b221e;
+}
+
+.footer-divider {
+    border-color: rgba(255,255,255,0.1);
+}
+
+/* Carousel */
+.carousel-item img {
+    height: 60vh;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.navbar-brand {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    color: #6f4e37 !important;
+}
+
+.success-icon {
+    font-size: 5rem;
+    color: #198754; /* Bootstrap success green */
+    animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.order-card {
+    background-color: var(--vb-bg-soft);
+    border: none;
+    border-left: 4px solid var(--vb-accent-brown);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Oprava barvy aktivního filtru v E-shopu */
+#shop-filters .list-group-item.active {
+    background-color: #6f4e37 !important;
+    border-color: #6f4e37 !important;
+    color: #fff !important;
+}
+
+/* Styl pro ikony v sekci "Proč my" */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #fff; /* Bílé pozadí kroužku */
+    border-radius: 50%;     /* Udělá z toho kruh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Animace při najetí */
+}
+
+/* Efekt při najetí myší na kartu - ikona poskočí */
+.card:hover .icon-circle {
+    transform: translateY(-10px);
+    background-color: #f7f3f0; /* Změna pozadí na béžovou */
+}
